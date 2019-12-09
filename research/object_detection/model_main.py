@@ -25,6 +25,14 @@ import tensorflow as tf
 from object_detection import model_hparams
 from object_detection import model_lib
 
+# ========================================================
+from tensorflow.compat.v1 import ConfigProto
+from tensorflow.compat.v1 import InteractiveSession
+config = ConfigProto()
+config.gpu_options.allow_growth = True
+session = InteractiveSession(config=config)
+# ========================================================
+
 flags.DEFINE_string(
     'model_dir', None, 'Path to output model directory '
     'where event and checkpoint files will be written.')
